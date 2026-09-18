@@ -1,0 +1,94 @@
+/* Keep editor font metrics deterministic/offline. Remote web-font swaps can
+   invalidate Monaco glyph measurements and make the caret/selection drift. */
+@import 'tailwindcss';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: #0a0a0c;
+  color: #e8e8ed;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); }
+
+/* Monaco focus fix */
+.monaco-editor .margin { background: transparent !important; }
+
+/* Select arrow */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%2398989d'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 24px !important;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Textarea reset */
+textarea {
+  box-sizing: border-box;
+}
+
+/* Spin keyframe */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Range input */
+input[type=range] {
+  height: 4px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/* Number input */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  opacity: 0.5;
+}
+
+.spin-icon {
+  animation: spin 1s linear infinite;
+}
+
+/* Native Tauri glass/vibrancy support. The native material lives behind the webview. */
+html, body, #root { background: transparent; }
+.glass-active .monaco-editor,
+.glass-active .monaco-editor-background,
+.glass-active .monaco-editor .margin,
+.glass-active .monaco-editor .inputarea.ime-input {
+  background-color: transparent !important;
+}
+
+/* v0.3.8: avoid a solid WebView backing color while a native Tauri material is active. */
+.glass-active {
+  isolation: isolate;
+}

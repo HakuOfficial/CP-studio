@@ -1,0 +1,10 @@
+{
+  "description": "An Apple-style coding IDE tailored for competitive programming with test case generation and automatic time and memory limit checks to optimize code performance.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

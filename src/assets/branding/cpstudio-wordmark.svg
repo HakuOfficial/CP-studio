@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 256" width="640" height="228">
+  <defs>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4da3ff"/>
+      <stop offset="100%" stop-color="#0060df"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="256" height="256" rx="56" fill="#0a0a0c"/>
+  <path d="M 56 200 L 56 56 L 128 128 L 200 56 L 200 200"
+        stroke="url(#g2)" stroke-width="26"
+        stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="200" cy="56" r="14" fill="url(#g2)"/>
+  <text x="296" y="120" font-family="Inter, system-ui, sans-serif"
+        font-size="64" font-weight="700" fill="#e8e8ed" letter-spacing="-2">CP Studio</text>
+  <text x="296" y="164" font-family="JetBrains Mono, monospace"
+        font-size="20" font-weight="500" fill="#636366" letter-spacing="4">COMPETITIVE PROGRAMMING IDE</text>
+</svg>
